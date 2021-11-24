@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate
+spec:
+  backoffLimit: 2
+  activeDeadlineSeconds: 60
+  template:
+    spec:
+      containers:
+      - name: k8s
+        image: multipassport/k8s:latest
+        command:
+        - python
+        - ./manage.py
+        - migrate
+      restartPolicy: Never
