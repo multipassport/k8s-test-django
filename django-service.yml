@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-deployment
+  labels:
+    app: k8s-app
+    instance: k8s-abc
+    version: 1.0.0
+    component: database
+    part-of: django
+    managed-by: multipassport
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: k8s
+  template:
+    metadata:
+      labels:
+        project: k8s
+    spec:
+      containers:
+        - name: k8s-web
+          image: multipassport/k8s:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: django-config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-service
+  labels:
+    env: prod
+    owner: multipassport
+spec:
+  selector:
+    project: k8s
+  ports:
+    - name: app-listener
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
