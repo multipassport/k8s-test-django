@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: django-config
+  labels:
+    app: k8s-app
+    tier: k8s-web
+data:
+  DEBUG: "True"
+  DATABASE_URL: "postgres://clibknet:S1jk89CKWCE3qTcAP5lvLBHrDKWrKVyq@hattie.db.elephantsql.com/clibknet"
+  ALLOWED_HOSTS: "*"

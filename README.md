@@ -29,7 +29,7 @@ $ docker-compose run web ./manage.py createsuperuser
 
 Запустите [кластер minikube](https://minikube.sigs.k8s.io/docs/drivers/virtualbox/)
 
-В файле `config-map.yml` замените значения переменных окружения на ваши, где `DATABASE_URL` - адрес базы данных PostgreSQL, `ALLOWED_HOSTS` - адрес кластера minikube, полученный с помощью команды `minikube ip`
+Скопируйте содержимое файла `config-map-example.yml` в файл `config-map.yml` замените значения переменных окружения на ваши, где `DATABASE_URL` - адрес базы данных PostgreSQL, `ALLOWED_HOSTS` - адрес кластера minikube, полученный с помощью команды `minikube ip`
 
 Запустите следующую команду, чтобы добавить в файл /etc/hosts переадресацию запросов с введенного вами url на IP кластера minikube, где my-site.test можно заменить на нужный url
 ```shell-session
