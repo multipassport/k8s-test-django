@@ -9,7 +9,7 @@ spec:
       template:
         spec:
           containers:
-          - name: k8s
+          - name: k8s-django
             image: multipassport/k8s:latest
             imagePullPolicy: IfNotPresent
             command:

@@ -13,11 +13,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      project: k8s
+      app: k8s-django
   template:
     metadata:
       labels:
-        project: k8s
+        app: k8s-django
     spec:
       containers:
         - name: k8s-web
@@ -38,7 +38,7 @@ metadata:
     owner: multipassport
 spec:
   selector:
-    project: k8s
+    app: k8s-django
   ports:
     - name: app-listener
       protocol: TCP
