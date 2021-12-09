@@ -4,6 +4,11 @@ metadata:
   name: ingress-hosts
 
 spec:
+  defaultBackend:
+    resource:
+      apiGroup: k8s.example.com
+      kind: StorageBucket
+      name: static-assets
   rules:
   - host: star-burger.test
     http:
