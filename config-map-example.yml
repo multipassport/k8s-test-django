@@ -7,5 +7,5 @@ metadata:
     tier: k8s-web
 data:
   DEBUG: "True"
-  DATABASE_URL: "postgres://clibknet:S1jk89CKWCE3qTcAP5lvLBHrDKWrKVyq@hattie.db.elephantsql.com/clibknet"
+  DATABASE_URL: "postgres://..."
   ALLOWED_HOSTS: "*"
